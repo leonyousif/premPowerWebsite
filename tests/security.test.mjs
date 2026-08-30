@@ -1,0 +1,98 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import {
+  createContentSecurityPolicy,
+  securityHeaders,
+} from '../lib/security.ts';
+import {
+  serializeJsonLd,
+  trustedOrigin,
+  createPageMetadata,
+} from '../lib/seo.ts';
+
+test('production policy restricts scripts with a nonce and disables dangerous browser capabilities', () => {
+  const policy = createContentSecurityPolicy('test-nonce', false);
+  assert.match(policy, /script-src 'self' 'nonce-test-nonce'/);
+  assert.doesNotMatch(policy, /unsafe-eval/);
+  assert.doesNotMatch(
+    policy.split(';').find((item) => item.trim().startsWith('script-src')),
+    /unsafe-inline/,
+  );
+  for (const directive of [
+    "object-src 'none'",
+    "frame-ancestors 'none'",
+    "form-action 'none'",
+    'upgrade-insecure-requests',
+  ])
+    assert.ok(policy.includes(directive));
+  assert.equal(securityHeaders['X-Content-Type-Options'], 'nosniff');
+  assert.match(securityHeaders['Permissions-Policy'], /camera=\(\)/);
+});
+
+test('development-only allowances never appear in production policy', () => {
+  assert.match(createContentSecurityPolicy('example', true), /unsafe-eval/);
+  assert.match(
+    createContentSecurityPolicy('example', true),
+    /ws:\/\/localhost/,
+  );
+  assert.doesNotMatch(
+    createContentSecurityPolicy('example', false),
+    /ws:|unsafe-eval/,
+  );
+});
+
+test('structured data cannot break out of its script element', () => {
+  const payload = {
+    name: '</script><script>alert(1)</script>',
+    description: 'x\u2028y\u2029z',
+  };
+  const serialized = serializeJsonLd(payload);
+  assert.ok(!serialized.includes('<'));
+  assert.ok(!serialized.includes('\u2028'));
+  assert.deepEqual(JSON.parse(serialized), payload);
+});
+
+test('canonical origins reject insecure, credentialed and path-bearing URLs', () => {
+  for (const value of [
+    undefined,
+    '',
+    'javascript:alert(1)',
+    'http://example.com',
+    'https://user:pass@example.com',
+    'https://example.com/path',
+    'https://example.com/?x=1',
+    'https://example.com/#hash',
+    '//example.com',
+  ])
+    assert.equal(trustedOrigin(value), undefined);
+  assert.equal(trustedOrigin('https://example.com/'), 'https://example.com');
+});
+
+test('page and social metadata use the trusted origin and selected service image', () => {
+  const data = createPageMetadata(
+    'Home CCTV',
+    'Home camera systems.',
+    '/services/home-cctv',
+    'https://example.com',
+    '/images/cctv-camera.jpg',
+  );
+  assert.equal(
+    data.alternates.canonical,
+    'https://example.com/services/home-cctv',
+  );
+  assert.equal(data.openGraph.title, 'Home CCTV');
+  assert.equal(data.twitter.description, 'Home camera systems.');
+  assert.equal(
+    data.openGraph.images[0].url,
+    'https://example.com/images/cctv-camera.jpg',
+  );
+  assert.deepEqual(data.twitter.images, [
+    'https://example.com/images/cctv-camera.jpg',
+  ]);
+});
+
+test('unconfigured origin never publishes a fake canonical or image URL', () => {
+  const data = createPageMetadata('Preview', 'Description', '/');
+  assert.equal(data.alternates, undefined);
+  assert.deepEqual(data.openGraph.images, []);
+});
