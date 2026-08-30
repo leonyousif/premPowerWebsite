@@ -57,7 +57,7 @@ Before a public business launch:
 
 - Production scripts use a fresh per-request CSP nonce, with no script `unsafe-inline` or `unsafe-eval`. Style attributes remain allowed because the UI primitives/framework use them.
 - CSP restricts images/fonts/connections, blocks objects, framing and native form submissions. HSTS is added in production; responses prevent sniffing, limit referrer data, and disable camera, microphone, geolocation and payment APIs.
-- HTML is private/no-store so nonces are not shared through a cache. The request proxy replaces incoming nonce/CSP headers before rendering.
+- HTML is private/no-store so nonces are not shared through a cache. The request proxy rejects forged incoming nonce/CSP headers before rendering.
 - Structured data escapes HTML-sensitive characters; form values render as React text.
 - The app adds no tracking, external embeds, uploads, authentication system, database or payment surface. The hosting platform separately manages preview authentication and may maintain its own logs/cookies.
 - Keyboard focus, a skip link, form labels/error association, touch-friendly controls, responsive layouts and reduced-motion handling are included. The theme always remains light, including on devices that prefer dark mode.

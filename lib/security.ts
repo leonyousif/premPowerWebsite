@@ -25,3 +25,12 @@ export const securityHeaders = {
   'Permissions-Policy':
     'camera=(), microphone=(), geolocation=(), payment=(), usb=()',
 } as const;
+
+/** These are response/internal headers, never legitimate visitor input. */
+export function hasReservedSecurityHeaders(headers: Headers): boolean {
+  return [
+    'content-security-policy',
+    'content-security-policy-report-only',
+    'x-nonce',
+  ].some((name) => headers.has(name));
+}

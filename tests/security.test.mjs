@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import {
   createContentSecurityPolicy,
+  hasReservedSecurityHeaders,
   securityHeaders,
 } from '../lib/security.ts';
 import {
@@ -95,4 +96,26 @@ test('unconfigured origin never publishes a fake canonical or image URL', () => 
   const data = createPageMetadata('Preview', 'Description', '/');
   assert.equal(data.alternates, undefined);
   assert.deepEqual(data.openGraph.images, []);
+});
+
+test('reserved security headers are rejected case-insensitively', () => {
+  for (const name of [
+    'Content-Security-Policy',
+    'content-security-policy-report-only',
+    'X-Nonce',
+  ]) {
+    assert.equal(
+      hasReservedSecurityHeaders(new Headers({ [name]: 'attacker' })),
+      true,
+    );
+  }
+  assert.equal(
+    hasReservedSecurityHeaders(
+      new Headers({
+        accept: 'text/html',
+        'x-forwarded-host': 'attacker.invalid',
+      }),
+    ),
+    false,
+  );
 });

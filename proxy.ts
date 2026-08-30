@@ -1,15 +1,34 @@
 import { NextResponse, type NextRequest } from 'next/server';
-import { createContentSecurityPolicy, securityHeaders } from '@/lib/security';
+import {
+  createContentSecurityPolicy,
+  hasReservedSecurityHeaders,
+  securityHeaders,
+} from '@/lib/security';
 import { launch } from '@/content/launch';
 
 export function proxy(request: NextRequest) {
   const development = process.env.NODE_ENV !== 'production';
+  // Vinext reads the original request CSP before the overridden request headers.
+  // Reject forged security headers before rendering, so its nonce cannot differ
+  // from the fresh nonce in our response policy.
+  if (hasReservedSecurityHeaders(request.headers)) {
+    return new NextResponse('Invalid request.', {
+      status: 400,
+      headers: {
+        ...securityHeaders,
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'private, no-store',
+        'Content-Security-Policy': "default-src 'none'; frame-ancestors 'none'",
+        'X-Robots-Tag': 'noindex, nofollow',
+      },
+    });
+  }
   const nonce = btoa(
     String.fromCharCode(...crypto.getRandomValues(new Uint8Array(16))),
   );
   const policy = createContentSecurityPolicy(nonce, development);
   const requestHeaders = new Headers(request.headers);
-  // Replace untrusted incoming values before the renderer derives its nonce.
+  // Pass the fresh nonce to server components and framework-generated scripts.
   requestHeaders.set('x-nonce', nonce);
   requestHeaders.set('Content-Security-Policy', policy);
   const response = NextResponse.next({ request: { headers: requestHeaders } });
