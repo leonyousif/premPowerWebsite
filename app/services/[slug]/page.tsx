@@ -1,4 +1,6 @@
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowUpRight, Check, ChevronRight } from 'lucide-react';
 import { ContactSection } from '@/components/contact-section';
 import { StructuredData } from '@/components/structured-data';
@@ -21,7 +23,7 @@ export async function generateMetadata({ params }: PageProps) {
     service.description,
     `/services/${service.slug}`,
     launch.origin,
-    '/images/cctv-camera.jpg',
+    service.image,
   );
 }
 
@@ -43,25 +45,25 @@ export default async function ServicePage({ params }: PageProps) {
           ...(launch.origin
             ? {
                 url: `${launch.origin}${path}`,
-                image: `${launch.origin}/images/cctv-camera.jpg`,
+                image: `${launch.origin}${service.image}`,
               }
             : {}),
         }}
       />
       <div className="container">
         <nav aria-label="Breadcrumb" className="breadcrumbs">
-          <a href="/">Home</a>
+          <Link href="/">Home</Link>
           <ChevronRight size={12} />
-          <a href="/#services">Services</a>
+          <Link href="/#services">Services</Link>
           <ChevronRight size={12} />
           <span aria-current="page">{service.title}</span>
         </nav>
       </div>
       <section className="container service-hero">
         <div>
-          <span className="eyebrow">YOUR SPACE. YOUR SECURITY.</span>
+          <span className="eyebrow">{service.eyebrow}</span>
           <h1>{service.title}</h1>
-          <p>{service.description}</p>
+          <p>{service.intro}</p>
           <a href="#contact" className="button button-gold">
             Talk about your project <ArrowUpRight size={18} />
           </a>
@@ -70,29 +72,21 @@ export default async function ServicePage({ params }: PageProps) {
           </span>
         </div>
         <div className="detail-image">
-          <img
-            src="/images/cctv-camera.jpg"
-            alt="Outdoor CCTV camera on a light wall, illustrating security camera installation"
-            width="1400"
-            height="933"
-            fetchPriority="high"
+          <Image
+            src={service.image}
+            alt={service.imageAlt}
+            fill
+            sizes="(max-width: 640px) calc(100vw - 40px), 50vw"
+            priority
           />
           <span>Illustrative photography</span>
         </div>
       </section>
       <section className="section container service-inclusions">
         <div>
-          <span className="eyebrow">A SYSTEM THAT MAKES SENSE</span>
-          <h2>
-            Considered from
-            <br />
-            every angle.
-          </h2>
-          <p>
-            A good system starts with understanding your property. We consider
-            coverage, light, access and everyday use to help shape an
-            appropriate solution.
-          </p>
+          <span className="eyebrow">A PRACTICAL APPROACH</span>
+          <h2>{service.detailsHeading}</h2>
+          <p>{service.detailsCopy}</p>
         </div>
         <div>
           <h3>What your solution could include</h3>
@@ -110,14 +104,36 @@ export default async function ServicePage({ params }: PageProps) {
           </p>
         </div>
       </section>
+      <section className="service-detail-section">
+        <div className="container">
+          <div className="service-detail-heading">
+            <span className="eyebrow">COMMON PROJECT AREAS</span>
+            <h2>A closer look at the work.</h2>
+          </div>
+          <div className="service-detail-grid">
+            {service.highlights.map((highlight, index) => (
+              <article className="service-detail-card" key={highlight.title}>
+                <span>0{index + 1}</span>
+                <h3>{highlight.title}</h3>
+                <p>{highlight.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
       <div className="container service-navigation">
-        <a href="/#services" className="text-link">
+        <Link href="/#services" className="text-link">
           ← Explore all services
-        </a>
-        <p>
-          Looking for something else?{' '}
-          <a href="#contact">Tell us what you need.</a>
-        </p>
+        </Link>
+        <nav className="related-services" aria-label="Related services">
+          {site.services
+            .filter((item) => item.slug !== service.slug)
+            .map((item) => (
+              <Link key={item.slug} href={`/services/${item.slug}`}>
+                {item.shortTitle}
+              </Link>
+            ))}
+        </nav>
       </div>
       <ContactSection initialService={service.title} />
     </main>

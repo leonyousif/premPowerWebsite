@@ -71,18 +71,18 @@ test('canonical origins reject insecure, credentialed and path-bearing URLs', ()
 
 test('page and social metadata use the trusted origin and selected service image', () => {
   const data = createPageMetadata(
-    'Home CCTV',
-    'Home camera systems.',
-    '/services/home-cctv',
+    'Residential Electrical',
+    'Electrical work for homes.',
+    '/services/residential-electrician',
     'https://example.com',
     '/images/cctv-camera.jpg',
   );
   assert.equal(
     data.alternates.canonical,
-    'https://example.com/services/home-cctv',
+    'https://example.com/services/residential-electrician',
   );
-  assert.equal(data.openGraph.title, 'Home CCTV');
-  assert.equal(data.twitter.description, 'Home camera systems.');
+  assert.equal(data.openGraph.title, 'Residential Electrical');
+  assert.equal(data.twitter.description, 'Electrical work for homes.');
   assert.equal(
     data.openGraph.images[0].url,
     'https://example.com/images/cctv-camera.jpg',

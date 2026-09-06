@@ -1,7 +1,12 @@
-import { ArrowUpRight, Building2, House, Settings2 } from 'lucide-react';
+import { ArrowUpRight, Building2, Cctv, HousePlug, Wrench } from 'lucide-react';
 import { site } from '@/content/site';
 
-const icons = { home: House, building: Building2, settings: Settings2 };
+const icons = {
+  residential: HousePlug,
+  commercial: Building2,
+  cctv: Cctv,
+  maintenance: Wrench,
+};
 
 export function ServiceGrid() {
   return (

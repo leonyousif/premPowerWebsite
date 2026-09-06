@@ -1,7 +1,8 @@
 export const serviceOptions = [
-  'Home CCTV',
-  'Commercial CCTV',
-  'Upgrades & support',
+  'Residential Electrical',
+  'Commercial Electrical',
+  'CCTV & Security',
+  'Electrical Maintenance',
   'Not sure yet',
 ] as const;
 export type ServiceOption = (typeof serviceOptions)[number];

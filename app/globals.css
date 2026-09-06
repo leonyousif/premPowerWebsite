@@ -1597,3 +1597,270 @@ h2 {
     grid-template-columns: 1fr;
   }
 }
+
+/* Electrical service expansion */
+.preview-bar {
+  font-size: 10px;
+}
+.preview-bar span {
+  font-size: 11px;
+}
+.desktop-nav a,
+.button,
+.text-link {
+  font-size: 14px;
+}
+.eyebrow {
+  font-size: 12px;
+}
+.hero-copy > p {
+  max-width: 520px;
+  font-size: 16px;
+  line-height: 1.75;
+}
+.hero-image {
+  object-position: center;
+}
+.hero-image-label {
+  font-size: 11px;
+  color: #2e3832;
+}
+.camera-note strong {
+  font-size: 14px;
+}
+.camera-note div > span {
+  font-size: 12px;
+}
+.benefit-grid > span {
+  font-size: 14px;
+}
+.section-heading > p,
+.section > p {
+  font-size: 16px;
+}
+.service-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+.service-card {
+  padding: 28px 25px;
+}
+.service-card h3 {
+  font-size: 22px;
+}
+.service-card > p {
+  font-size: 15px;
+  line-height: 1.75;
+}
+.card-link {
+  font-size: 13px;
+}
+.services-footnote {
+  font-size: 14px;
+}
+.why-copy > p {
+  max-width: 430px;
+  font-size: 16px;
+  line-height: 1.75;
+}
+.reason h3 {
+  font-size: 18px;
+}
+.reason p,
+.process-grid p {
+  font-size: 15px;
+  line-height: 1.75;
+}
+.local-banner p,
+.local-banner .button {
+  font-size: 14px;
+}
+.faq-section > div > p,
+.faq-list [data-slot='accordion-content'] {
+  font-size: 15px;
+}
+.faq-section .text-link {
+  font-size: 14px;
+}
+.faq-list [data-slot='accordion-trigger'] {
+  font-size: 16px;
+}
+.contact-copy > p {
+  max-width: 380px;
+  font-size: 16px;
+  line-height: 1.75;
+}
+.contact-details dt {
+  font-size: 11px;
+}
+.contact-details dd {
+  font-size: 14px;
+}
+.contact-copy > .placeholder-note,
+.placeholder-note,
+.detail-disclaimer {
+  font-size: 12px;
+}
+.sample-label {
+  font-size: 10px;
+}
+.form-intro,
+.enquiry-summary > p,
+.enquiry-summary dl > div {
+  font-size: 14px;
+}
+.form-field label {
+  font-size: 14px;
+}
+.form-field small,
+.form-note,
+.privacy-note,
+.field-error {
+  font-size: 12px;
+}
+.form-field input,
+.form-field select,
+.form-field textarea {
+  font-size: 15px;
+}
+.footer-top > div > p,
+.footer-links a,
+.footer-location > p:last-child {
+  font-size: 14px;
+}
+.footer-top h2 {
+  font-size: 14px;
+}
+.footer-bottom {
+  font-size: 12px;
+}
+.breadcrumbs,
+.service-navigation,
+.service-navigation p {
+  font-size: 13px;
+}
+.service-hero p {
+  font-size: 17px;
+  line-height: 1.75;
+}
+.service-inclusions > div > p {
+  font-size: 16px;
+  line-height: 1.75;
+}
+.feature-list li {
+  font-size: 15px;
+}
+.service-detail-section {
+  padding-block: var(--section-space);
+  background: #f2f1e9;
+  border-block: 1px solid #e3e1d7;
+}
+.service-detail-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+.service-detail-heading h2 {
+  margin-top: 0;
+}
+.service-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.service-detail-card {
+  min-height: 250px;
+  padding: 30px;
+  background: #fffefa;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+}
+.service-detail-card > span {
+  color: var(--gold-dark);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+.service-detail-card h3 {
+  margin-top: 44px;
+  font-size: 22px;
+  font-weight: 550;
+  letter-spacing: -0.03em;
+}
+.service-detail-card p {
+  margin-top: 14px;
+  color: var(--muted-foreground);
+  font-size: 15px;
+  line-height: 1.75;
+}
+.service-navigation {
+  padding-block: 40px 65px;
+}
+.related-services {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 16px 24px;
+}
+.related-services a {
+  color: var(--muted-foreground);
+  border-bottom: 1px solid #c8b98f;
+  padding-bottom: 3px;
+}
+.related-services a:hover {
+  color: var(--gold-dark);
+}
+
+@media (max-width: 1100px) {
+  .service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .preview-bar,
+  .preview-bar span {
+    font-size: 10px;
+  }
+  .hero-copy > p,
+  .section-heading > p,
+  .section > p,
+  .why-copy > p,
+  .reason p,
+  .process-grid p,
+  .faq-section > div > p,
+  .contact-copy > p,
+  .service-inclusions > div > p {
+    font-size: 16px;
+  }
+  .benefit-grid > span {
+    font-size: 13px;
+  }
+  .service-grid,
+  .service-detail-grid {
+    grid-template-columns: 1fr;
+  }
+  .service-detail-card {
+    min-height: 0;
+  }
+  .service-detail-heading,
+  .service-navigation {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .related-services {
+    justify-content: flex-start;
+  }
+  .contact-details dd,
+  .footer-links a,
+  .footer-top > div > p,
+  .footer-location > p:last-child {
+    font-size: 14px;
+  }
+  .form-field label,
+  .form-field small,
+  .form-note,
+  .privacy-note {
+    font-size: 12px;
+  }
+}

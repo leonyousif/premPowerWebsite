@@ -1,6 +1,6 @@
 # Premier Power
 
-A responsive, light-only CCTV installation website built with TypeScript, React, Vinext and the Sites hosting integration. Business details and marketing content are deliberately placeholders. The supplied logo is preserved in `public/images/premier-power-logo.png`.
+A responsive, light-only electrical and security website built with TypeScript, React and Vinext. It presents four service areas: residential electrical, commercial electrical, CCTV and security, and electrical maintenance. Business details and marketing content are deliberately placeholders. The supplied logo is preserved in `public/images/premier-power-logo.png`.
 
 ## Development
 
@@ -20,7 +20,7 @@ npm run build
 
 - `content/site.ts`: business placeholders, navigation and service records.
 - `content/home.ts`: sample home page copy, process and FAQs.
-- `content/launch.ts`: trusted canonical origin and search indexing switch.
+- `content/launch.ts`: trusted canonical origin and search indexing switch. The origin is currently unset for local-only previewing.
 - `app/`: home, data-driven service pages, privacy, terms, 404, robots and sitemap.
 - `components/`: reusable site sections. Only forms, navigation and FAQs need client JavaScript.
 - `components/ui/`: the five shadcn primitives currently used. Add more through the existing shadcn configuration when needed.
@@ -32,7 +32,7 @@ Add a service record to `content/site.ts`; its detail route, navigation, service
 
 ## Placeholder and enquiry behaviour
 
-The preview banner and terms identify sample copy. Phone, email, service area, hours, licences and ABN use explicit bracketed placeholders. There are no invented reviews, certifications, prices, completed-project claims or customer counts. The photos illustrate cameras rather than completed installations.
+The preview banner and terms identify sample copy. Phone, email, service area, hours, licences and ABN use explicit bracketed placeholders. There are no invented reviews, certifications, prices, completed-project claims or customer counts. The photos illustrate electrical and security work rather than completed Premier Power installations.
 
 The form validates and displays an **enquiry preview only**. It does not send a request, store data, create a booking, trigger email, log form contents, or use browser storage. It stays disabled until JavaScript is ready. The CSP also blocks native form submissions. Edit and reset controls are included. Reloading the page clears the in-memory preview; browser autofill remains controlled by the visitor's browser.
 
@@ -66,10 +66,13 @@ No implementation can guarantee absolute security. Dependency audit, type checks
 
 ## Design references and assets
 
-Original styling uses warm white, muted gold and charcoal type inspired by the supplied logo. Service organization, quote visibility and practical FAQs were informed by [Better Electrical Co.](https://www.betterelectricalco.com.au/cctv-installation) and [ADS Electrical](https://www.adselectrical.com.au/services/cctv-installation-sydney). Their text, logos and website code were not copied.
+Original styling uses warm white, muted gold and charcoal type inspired by the supplied logo. The service-led structure, separate residential and commercial paths, maintenance support and visible quote actions were informed by [CJM Electrical](https://www.cjmelectrical.com.au/), [Intellectrical](https://intellectrical.com.au/) and [ECA Electrix](https://ecaelectrix.com.au/). Their text, logos and website code were not copied.
 
 - Logo: provided by the user; unchanged source image.
 - Camera photograph: [Unsplash image](https://images.unsplash.com/photo-1495714096525-285e85481946), downloaded locally for predictable loading and fewer third-party requests.
-- `public/og.png`: generated with built-in ImageGen. Brief: a warm-white and muted-gold landscape card with a white CCTV camera, the exact brand text “PREMIER POWER”, headline “Protect what matters.” and supporting line “CCTV installation & smarter security”. It is illustrative artwork, not a completed-installation photograph.
+- Residential photograph: [Anete Lusina on Pexels](https://www.pexels.com/photo/man-installing-light-bulb-in-apartment-4792522/), downloaded locally and labelled as illustrative.
+- Commercial photograph: [Antoni Shkraba on Pexels](https://www.pexels.com/photo/man-in-white-t-shirt-doing-construction-work-4981772/), downloaded locally and labelled as illustrative.
+- Maintenance photograph: [Toolmash Expo on Unsplash](https://unsplash.com/photos/electrician-testing-electrical-panel-with-multimeter-PkHf7BUWbtk), downloaded locally and labelled as illustrative.
+- `public/og.png`: the existing CCTV social preview asset is preserved unchanged. Because `launch.origin` is unset for this local-only version, the app does not currently publish an absolute social image URL. Replace or update the asset only when a public launch brief is approved.
 
 No secret values belong in this repository. Local `.env*` files are ignored. Hosting metadata must contain only the project ID and supported logical resource declarations.

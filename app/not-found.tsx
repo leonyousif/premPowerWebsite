@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
 export default function NotFound() {
@@ -13,9 +14,9 @@ export default function NotFound() {
         We couldn’t find that page. Explore our services or head back to the
         home page.
       </p>
-      <a href="/" className="button button-gold">
+      <Link href="/" className="button button-gold">
         Back to home <ArrowUpRight size={18} />
-      </a>
+      </Link>
     </main>
   );
 }

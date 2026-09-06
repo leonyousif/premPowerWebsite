@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     ? new URL(launch.origin!)
     : undefined,
   title: {
-    default: 'Premier Power | CCTV Installation & Security Cameras',
+    default: 'Premier Power | Electrical, CCTV & Maintenance Services',
     template: '%s | Premier Power',
   },
   description: site.description,

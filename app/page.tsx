@@ -1,13 +1,17 @@
+import Image from 'next/image';
 import {
   ArrowDown,
   ArrowUpRight,
-  Camera,
+  Building2,
+  Cctv,
   Check,
   Handshake,
+  HousePlug,
   ScanLine,
   ShieldCheck,
   Smartphone,
   Sparkles,
+  Wrench,
 } from 'lucide-react';
 import { ServiceGrid } from '@/components/service-grid';
 import { FaqSection } from '@/components/faq-section';
@@ -19,7 +23,7 @@ import { launch } from '@/content/launch';
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata = createPageMetadata(
-  'CCTV Installation & Security Cameras',
+  'Electricians, CCTV & Electrical Maintenance',
   site.description,
   '/',
   launch.origin,
@@ -47,18 +51,18 @@ export default function Home() {
         <section className="hero container" aria-labelledby="hero-heading">
           <div className="hero-copy">
             <span className="eyebrow">
-              <span className="gold-line" /> SECURITY, WITH A HIGHER STANDARD
+              <span className="gold-line" /> ELECTRICAL &amp; SECURITY, DONE
+              PROPERLY
             </span>
             <h1 id="hero-heading">
-              Protect what
+              Power for today.
               <br />
-              matters.
-              <br />
-              <span>See the difference.</span>
+              <span>Ready for tomorrow.</span>
             </h1>
             <p>
-              Thoughtfully designed CCTV systems for your home and business.
-              Clearer vision. Smarter security. Complete peace of mind.
+              Residential and commercial electrical work, CCTV installation and
+              ongoing maintenance—planned around your property and the way you
+              use it.
             </p>
             <div className="hero-actions">
               <a className="button button-gold" href="#contact">
@@ -78,26 +82,26 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-visual">
-            <img
-              src="/images/cctv-camera.jpg"
-              alt="White outdoor CCTV security camera professionally mounted on a textured wall"
-              width="1400"
-              height="933"
-              fetchPriority="high"
+            <Image
+              src="/images/electrician-residential.jpg"
+              alt="Tradesperson fitting a modern pendant light in a bright home"
+              fill
+              sizes="(max-width: 640px) calc(100vw - 40px), 50vw"
+              priority
               className="hero-image"
             />
             <div className="image-corner corner-top" />
             <div className="image-corner corner-bottom" />
             <div className="hero-image-label">
-              <span className="status-dot" /> A CLEARER VIEW. EVERY DAY.
+              <span className="status-dot" /> PLANNED. INSTALLED. SUPPORTED.
             </div>
             <div className="camera-note">
               <span className="note-icon">
                 <ShieldCheck size={24} />
               </span>
               <div>
-                <strong>A little more peace of mind.</strong>
-                <span>Protection, professionally considered.</span>
+                <strong>One trusted team.</strong>
+                <span>Power, protection and ongoing care.</span>
               </div>
             </div>
             <span className="image-credit">Illustrative photography</span>
@@ -106,16 +110,16 @@ export default function Home() {
         <div className="benefit-strip">
           <div className="container benefit-grid">
             <span>
-              <Camera /> CCTV installation
+              <HousePlug /> Residential electrical
             </span>
             <span>
-              <ShieldCheck /> Home & business security
+              <Building2 /> Commercial electrical
             </span>
             <span>
-              <Smartphone /> Remote viewing setup
+              <Cctv /> CCTV &amp; security
             </span>
             <span>
-              <Check /> Ongoing care & support
+              <Wrench /> Maintenance &amp; repairs
             </span>
           </div>
         </div>
@@ -123,17 +127,18 @@ export default function Home() {
           <div className="section-heading">
             <div>
               <span className="eyebrow">OUR SERVICES</span>
-              <h2>Security that fits your world.</h2>
+              <h2>Four ways we keep things running.</h2>
             </div>
             <p>
-              From your front door to your business floor,
+              From home upgrades to commercial projects,
               <br />
-              the right solution starts with your needs.
+              start with the service that fits your needs.
             </p>
           </div>
           <ServiceGrid />
           <p className="services-footnote">
-            Every property is different. Your security should be, too.
+            Every property is different. The right scope starts with a clear
+            conversation.
           </p>
         </section>
         <section
@@ -145,16 +150,16 @@ export default function Home() {
             <div className="why-copy">
               <span className="eyebrow">THE PREMIER POWER APPROACH</span>
               <h2 id="why-heading">
-                Good security.
+                Good electrical work.
                 <br />
                 Great attention
                 <br />
                 <span>to the details.</span>
               </h2>
               <p>
-                It’s about more than installing cameras. It’s about
-                understanding your space, making the right recommendations, and
-                helping you feel confident using your system.
+                We start by understanding the property, the people using it and
+                the result you need. That leads to clearer recommendations,
+                tidier work and a more useful handover.
               </p>
               <a href="#process" className="text-link">
                 Get to know our process <ArrowUpRight size={17} />
@@ -185,7 +190,7 @@ export default function Home() {
           <div className="section-heading">
             <div>
               <span className="eyebrow">FROM FIRST HELLO TO PEACE OF MIND</span>
-              <h2 id="process-heading">Four steps. One less worry.</h2>
+              <h2 id="process-heading">Four clear steps.</h2>
             </div>
             <p>
               A straightforward process,
@@ -212,7 +217,9 @@ export default function Home() {
           </span>
           <div>
             <span className="eyebrow">CLOSE TO HOME</span>
-            <h2 id="local-heading">Your local security specialists.</h2>
+            <h2 id="local-heading">
+              Your local electrical &amp; security team.
+            </h2>
             <p>Servicing {site.location}</p>
           </div>
           <a href="#contact" className="button button-outline">

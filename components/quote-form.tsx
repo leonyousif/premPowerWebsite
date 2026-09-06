@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useRef, useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { ArrowUpRight, CheckCheck, LockKeyhole, RotateCcw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -29,16 +30,23 @@ export function QuoteForm({
   const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    setReady(true);
+    const frame = requestAnimationFrame(() => setReady(true));
+    return () => cancelAnimationFrame(frame);
   }, []);
   useEffect(() => {
     if (reviewing) summaryRef.current?.focus();
   }, [reviewing]);
 
-  function reviewEnquiry(event: FormEvent<HTMLFormElement>) {
+  function reviewEnquiry(event: {
+    preventDefault(): void;
+    currentTarget: HTMLFormElement;
+  }) {
     event.preventDefault();
     const values = new FormData(event.currentTarget);
-    const read = (name: string) => String(values.get(name) ?? '');
+    const read = (name: string) => {
+      const value = values.get(name);
+      return typeof value === 'string' ? value : '';
+    };
     const result = validateQuote({
       name: read('name'),
       email: read('email'),
@@ -184,7 +192,7 @@ export function QuoteForm({
                 name="details"
                 rows={4}
                 maxLength={1500}
-                placeholder="Property type, existing cameras, or anything you’d like us to know…"
+                placeholder="Property type, electrical work, existing cameras, or anything you’d like us to know…"
                 {...fieldProps('details')}
               />
               {errorFor('details')}
@@ -204,7 +212,7 @@ export function QuoteForm({
           className="enquiry-summary"
           tabIndex={-1}
           ref={summaryRef}
-          role="status"
+          aria-live="polite"
         >
           <span className="summary-icon">
             <CheckCheck size={25} />
@@ -280,7 +288,7 @@ export function QuoteForm({
       )}
       <p className="privacy-note">
         <LockKeyhole size={12} /> Kept in this page only.{' '}
-        <a href="/privacy">Privacy information</a>
+        <Link href="/privacy">Privacy information</Link>
       </p>
     </div>
   );

@@ -15,16 +15,16 @@ export function ContactSection({
     >
       <div className="section container contact-grid">
         <div className="contact-copy">
-          <span className="eyebrow">LET’S TALK SECURITY</span>
+          <span className="eyebrow">LET’S TALK</span>
           <h2 id="contact-heading">
-            A safer space
+            Your next project
             <br />
             starts here.
             <ArrowUpRight className="contact-arrow" aria-hidden="true" />
           </h2>
           <p>
-            Building, upgrading, or simply exploring your options? Tell us a
-            little about your property.
+            Building, upgrading, fixing a fault or planning security? Tell us a
+            little about your property and the work you have in mind.
           </p>
           <dl className="contact-details">
             <div>

@@ -1,6 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { navigation } from '@/content/site';
@@ -18,8 +20,8 @@ export function SiteHeader() {
       </div>
       <header className="site-header">
         <div className="container header-inner">
-          <a href="/" className="brand" aria-label="Premier Power home">
-            <img
+          <Link href="/" className="brand" aria-label="Premier Power home">
+            <Image
               src="/images/premier-power-logo.png"
               alt=""
               width="56"
@@ -27,9 +29,9 @@ export function SiteHeader() {
             />
             <span>
               <strong>PREMIER POWER</strong>
-              <small>SECURITY. DONE PROPERLY.</small>
+              <small>ELECTRICAL. DONE PROPERLY.</small>
             </span>
-          </a>
+          </Link>
           <nav className="desktop-nav" aria-label="Main navigation">
             {navigation.map((item) => (
               <a key={item.href} href={item.href}>
@@ -37,9 +39,9 @@ export function SiteHeader() {
               </a>
             ))}
           </nav>
-          <a className="button button-gold header-cta" href="/#contact">
+          <Link className="button button-gold header-cta" href="/#contact">
             Get a free quote <ArrowUpRight size={17} />
-          </a>
+          </Link>
           <Button
             className="menu-toggle"
             variant="outline"
@@ -57,9 +59,6 @@ export function SiteHeader() {
             id="mobile-nav"
             className="mobile-nav container"
             aria-label="Mobile navigation"
-            onKeyDown={(event) => {
-              if (event.key === 'Escape') setOpen(false);
-            }}
           >
             {navigation.map((item) => (
               <a
@@ -70,9 +69,9 @@ export function SiteHeader() {
                 {item.label}
               </a>
             ))}
-            <a href="/#contact" onClick={() => setOpen(false)}>
+            <Link href="/#contact" onClick={() => setOpen(false)}>
               Get a free quote <ArrowUpRight size={16} />
-            </a>
+            </Link>
           </nav>
         )}
       </header>

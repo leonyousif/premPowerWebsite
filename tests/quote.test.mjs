@@ -7,7 +7,7 @@ const example = {
   email: 'alex@example.com',
   phone: '',
   suburb: 'Example suburb',
-  service: 'Home CCTV',
+  service: 'Residential Electrical',
   details: '',
 };
 

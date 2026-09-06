@@ -22,7 +22,9 @@ export function FaqSection() {
           <br />
           Clear answers.
         </h2>
-        <p>Getting started with security shouldn’t feel complicated.</p>
+        <p>
+          Getting started with electrical and security work should feel clear.
+        </p>
         <a href="#contact" className="text-link">
           Have another question? Let’s talk ↗
         </a>

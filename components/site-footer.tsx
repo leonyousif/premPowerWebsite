@@ -1,3 +1,5 @@
+import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { site, navigation } from '@/content/site';
 
@@ -7,23 +9,22 @@ export function SiteFooter() {
       <div className="container">
         <div className="footer-top">
           <div>
-            <a className="brand" href="/" aria-label="Premier Power home">
-              <img
+            <Link className="brand" href="/" aria-label="Premier Power home">
+              <Image
                 src="/images/premier-power-logo.png"
                 alt=""
                 width="56"
                 height="56"
-                loading="lazy"
               />
               <span>
                 <strong>PREMIER POWER</strong>
-                <small>SECURITY. DONE PROPERLY.</small>
+                <small>ELECTRICAL. DONE PROPERLY.</small>
               </span>
-            </a>
+            </Link>
             <p>
-              Protecting what matters.
+              Powering homes and businesses.
               <br />
-              Powering your future.
+              Protecting what matters.
             </p>
           </div>
           <div className="footer-links">
@@ -37,16 +38,16 @@ export function SiteFooter() {
           <div className="footer-links">
             <h2>Our services</h2>
             {site.services.map((service) => (
-              <a key={service.slug} href={`/services/${service.slug}`}>
+              <Link key={service.slug} href={`/services/${service.slug}`}>
                 {service.title}
-              </a>
+              </Link>
             ))}
-            <a href="/#contact">
+            <Link href="/#contact">
               Get a free quote <ArrowUpRight size={12} />
-            </a>
+            </Link>
           </div>
           <div className="footer-location">
-            <h2>Your local security team</h2>
+            <h2>Your local electrical &amp; security team</h2>
             <p>{site.location}</p>
             <span className="sample-label">PLACEHOLDER BUSINESS DETAILS</span>
             <p>
@@ -63,8 +64,8 @@ export function SiteFooter() {
             © {new Date().getFullYear()} Premier Power. Concept website.
           </span>
           <div>
-            <a href="/privacy">Privacy</a>
-            <a href="/terms">Website terms</a>
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Website terms</Link>
             <a href="#main-content">Back to top ↑</a>
           </div>
         </div>

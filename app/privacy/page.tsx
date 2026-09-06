@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { createPageMetadata } from '@/lib/seo';
 import { launch } from '@/content/launch';
 
@@ -11,9 +12,9 @@ export const metadata = createPageMetadata(
 export default function PrivacyPage() {
   return (
     <main id="main-content" className="container legal-page">
-      <a href="/" className="text-link">
+      <Link href="/" className="text-link">
         ← Back to home
-      </a>
+      </Link>
       <span className="eyebrow">CONCEPT WEBSITE</span>
       <h1>Privacy information</h1>
       <p className="legal-intro">

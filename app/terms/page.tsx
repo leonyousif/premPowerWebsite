@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { createPageMetadata } from '@/lib/seo';
 import { launch } from '@/content/launch';
 
@@ -11,9 +12,9 @@ export const metadata = createPageMetadata(
 export default function TermsPage() {
   return (
     <main id="main-content" className="container legal-page">
-      <a href="/" className="text-link">
+      <Link href="/" className="text-link">
         ← Back to home
-      </a>
+      </Link>
       <span className="eyebrow">CONCEPT WEBSITE</span>
       <h1>Website terms</h1>
       <p className="legal-intro">
@@ -29,15 +30,16 @@ export default function TermsPage() {
       <h2>Sample service information</h2>
       <p>
         Service descriptions, process steps, availability and other marketing
-        copy are illustrative. Camera capabilities vary by equipment and
-        configuration. No performance guarantee, licence, accreditation,
-        customer review or service area should be inferred from this preview.
+        copy are illustrative. Electrical and security requirements vary by
+        property, equipment and agreed scope. No performance guarantee, licence,
+        accreditation, customer review or service area should be inferred from
+        this preview.
       </p>
       <h2>Images and branding</h2>
       <p>
-        The Premier Power logo was provided for this project. Camera photography
-        and the social sharing image illustrate the subject and are not examples
-        of completed Premier Power installations.
+        The Premier Power logo was provided for this project. Electrical and
+        security photography illustrates the subject and does not show completed
+        Premier Power installations.
       </p>
       <h2>Before public launch</h2>
       <p>
