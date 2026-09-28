@@ -25,10 +25,8 @@ export function createPageMetadata(
   description: string,
   path: string,
   origin?: string,
-  image = '/og.png',
 ): Metadata {
   const base = trustedOrigin(origin);
-  const imageUrl = base ? new URL(image, base).toString() : undefined;
   return {
     title,
     description,
@@ -42,13 +40,11 @@ export function createPageMetadata(
       locale: 'en_AU',
       siteName: 'Premier Power',
       url: base ? new URL(path, base).toString() : undefined,
-      images: imageUrl ? [{ url: imageUrl, alt: title }] : [],
     },
     twitter: {
-      card: 'summary_large_image',
+      card: 'summary',
       title,
       description,
-      images: imageUrl ? [imageUrl] : [],
     },
   };
 }

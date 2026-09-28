@@ -69,13 +69,12 @@ test('canonical origins reject insecure, credentialed and path-bearing URLs', ()
   assert.equal(trustedOrigin('https://example.com/'), 'https://example.com');
 });
 
-test('page and social metadata use the trusted origin and selected service image', () => {
+test('page and social metadata use the trusted origin without preview images', () => {
   const data = createPageMetadata(
     'Residential Electrical',
     'Electrical work for homes.',
     '/services/residential-electrician',
     'https://example.com',
-    '/images/cctv-camera.jpg',
   );
   assert.equal(
     data.alternates.canonical,
@@ -83,19 +82,15 @@ test('page and social metadata use the trusted origin and selected service image
   );
   assert.equal(data.openGraph.title, 'Residential Electrical');
   assert.equal(data.twitter.description, 'Electrical work for homes.');
-  assert.equal(
-    data.openGraph.images[0].url,
-    'https://example.com/images/cctv-camera.jpg',
-  );
-  assert.deepEqual(data.twitter.images, [
-    'https://example.com/images/cctv-camera.jpg',
-  ]);
+  assert.equal(data.openGraph.images, undefined);
+  assert.equal(data.twitter.card, 'summary');
+  assert.equal(data.twitter.images, undefined);
 });
 
-test('unconfigured origin never publishes a fake canonical or image URL', () => {
+test('unconfigured origin never publishes a fake canonical URL', () => {
   const data = createPageMetadata('Preview', 'Description', '/');
   assert.equal(data.alternates, undefined);
-  assert.deepEqual(data.openGraph.images, []);
+  assert.equal(data.openGraph.images, undefined);
 });
 
 test('reserved security headers are rejected case-insensitively', () => {

@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight, Check, ChevronRight } from 'lucide-react';
 import { ContactSection } from '@/components/contact-section';
@@ -23,7 +22,6 @@ export async function generateMetadata({ params }: PageProps) {
     service.description,
     `/services/${service.slug}`,
     launch.origin,
-    service.image,
   );
 }
 
@@ -45,7 +43,6 @@ export default async function ServicePage({ params }: PageProps) {
           ...(launch.origin
             ? {
                 url: `${launch.origin}${path}`,
-                image: `${launch.origin}${service.image}`,
               }
             : {}),
         }}
@@ -71,15 +68,12 @@ export default async function ServicePage({ params }: PageProps) {
             Sample service information — confirm availability before launch.
           </span>
         </div>
-        <div className="detail-image">
-          <Image
-            src={service.image}
-            alt={service.imageAlt}
-            fill
-            sizes="(max-width: 640px) calc(100vw - 40px), 50vw"
-            priority
-          />
-          <span>Illustrative photography</span>
+        <div
+          className="detail-image image-placeholder"
+          role="img"
+          aria-label="Placeholder"
+        >
+          placeholder
         </div>
       </section>
       <section className="section container service-inclusions">

@@ -1,16 +1,16 @@
 import type { Metadata, Viewport } from 'next';
 import { Geist } from 'next/font/google';
+import { ClientInit } from '@/components/client-init';
+import { SiteHeader } from '@/components/site-header';
+import { SiteFooter } from '@/components/site-footer';
 import { site } from '@/content/site';
 import { launch } from '@/content/launch';
 import { trustedOrigin } from '@/lib/seo';
-import { SiteHeader } from '@/components/site-header';
-import { SiteFooter } from '@/components/site-footer';
 import './globals.css';
 
 const geist = Geist({
   variable: '--font-geist-sans',
   subsets: ['latin'],
-  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -23,10 +23,6 @@ export const metadata: Metadata = {
   },
   description: site.description,
   robots: { index: launch.indexable, follow: launch.indexable },
-  icons: {
-    icon: '/images/premier-power-logo.png',
-    apple: '/images/premier-power-logo.png',
-  },
 };
 
 export const viewport: Viewport = {
@@ -42,6 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en-AU">
       <body className={geist.variable}>
+        <ClientInit />
         <SiteHeader />
         {children}
         <SiteFooter />

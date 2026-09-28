@@ -1,6 +1,6 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import { PremierPowerLogo } from '@/components/premier-power-logo';
 import { site, navigation } from '@/content/site';
 
 export function SiteFooter() {
@@ -10,12 +10,7 @@ export function SiteFooter() {
         <div className="footer-top">
           <div>
             <Link className="brand" href="/" aria-label="Premier Power home">
-              <Image
-                src="/images/premier-power-logo.png"
-                alt=""
-                width="56"
-                height="56"
-              />
+              <PremierPowerLogo />
               <span>
                 <strong>PREMIER POWER</strong>
                 <small>ELECTRICAL. DONE PROPERLY.</small>

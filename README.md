@@ -1,6 +1,6 @@
 # Premier Power
 
-A responsive, light-only electrical and security website built with TypeScript, React and Vinext. It presents four service areas: residential electrical, commercial electrical, CCTV and security, and electrical maintenance. Business details and marketing content are deliberately placeholders. The supplied logo is preserved in `public/images/premier-power-logo.png`.
+A responsive, light-only electrical and security website built with TypeScript, React and Vinext. It presents four service areas: residential electrical, commercial electrical, CCTV and security, and electrical maintenance. Business details and marketing content are deliberately placeholders. Grey boxes marked “placeholder” stand in for all photos and logos in the site preview.
 
 ## Development
 
@@ -32,7 +32,7 @@ Add a service record to `content/site.ts`; its detail route, navigation, service
 
 ## Placeholder and enquiry behaviour
 
-The preview banner and terms identify sample copy. Phone, email, service area, hours, licences and ABN use explicit bracketed placeholders. There are no invented reviews, certifications, prices, completed-project claims or customer counts. The photos illustrate electrical and security work rather than completed Premier Power installations.
+The preview banner and terms identify sample copy. Phone, email, service area, hours, licences and ABN use explicit bracketed placeholders. There are no invented reviews, certifications, prices, completed-project claims or customer counts. Grey placeholder boxes stand in for photos and the logo.
 
 The form validates and displays an **enquiry preview only**. It does not send a request, store data, create a booking, trigger email, log form contents, or use browser storage. It stays disabled until JavaScript is ready. The CSP also blocks native form submissions. Edit and reset controls are included. Reloading the page clears the in-memory preview; browser autofill remains controlled by the visitor's browser.
 
@@ -40,7 +40,7 @@ To activate live enquiries, implement a server endpoint, independently validate 
 
 ## SEO
 
-Each page has its own title, description, canonical URL when configured, and Open Graph/X metadata. Service pages share their rendered service content with metadata and use their actual primary photograph for sharing. The home page includes safe WebSite JSON-LD; service pages include Service JSON-LD without fake ratings, addresses or licence claims. Semantic headings, descriptive links, local image assets, image dimensions and a sitemap/robots implementation are included.
+Each page has its own title, description, canonical URL when configured, and Open Graph/X metadata without social preview images. The home page includes safe WebSite JSON-LD; service pages include Service JSON-LD without fake ratings, addresses or licence claims. Semantic headings, descriptive links and a sitemap/robots implementation are included.
 
 `launch.indexable` is intentionally `false` while details are placeholders. Both the HTML metadata and HTTP header say noindex, robots disallows crawling, and the sitemap is empty. Canonical URLs come only from the configured HTTPS origin, never visitor-controlled host headers. Private Sites access independently prevents public crawling. SEO foundations are implemented; this does not guarantee rankings or search inclusion.
 
@@ -68,11 +68,6 @@ No implementation can guarantee absolute security. Dependency audit, type checks
 
 Original styling uses warm white, muted gold and charcoal type inspired by the supplied logo. The service-led structure, separate residential and commercial paths, maintenance support and visible quote actions were informed by [CJM Electrical](https://www.cjmelectrical.com.au/), [Intellectrical](https://intellectrical.com.au/) and [ECA Electrix](https://ecaelectrix.com.au/). Their text, logos and website code were not copied.
 
-- Logo: provided by the user; unchanged source image.
-- Camera photograph: [Unsplash image](https://images.unsplash.com/photo-1495714096525-285e85481946), downloaded locally for predictable loading and fewer third-party requests.
-- Residential photograph: [Anete Lusina on Pexels](https://www.pexels.com/photo/man-installing-light-bulb-in-apartment-4792522/), downloaded locally and labelled as illustrative.
-- Commercial photograph: [Antoni Shkraba on Pexels](https://www.pexels.com/photo/man-in-white-t-shirt-doing-construction-work-4981772/), downloaded locally and labelled as illustrative.
-- Maintenance photograph: [Toolmash Expo on Unsplash](https://unsplash.com/photos/electrician-testing-electrical-panel-with-multimeter-PkHf7BUWbtk), downloaded locally and labelled as illustrative.
-- `public/og.png`: the existing CCTV social preview asset is preserved unchanged. Because `launch.origin` is unset for this local-only version, the app does not currently publish an absolute social image URL. Replace or update the asset only when a public launch brief is approved.
+- Image files in `public/` are retained in the repository but are not displayed or referenced by page/social metadata. The site preview uses grey placeholder boxes instead.
 
 No secret values belong in this repository. Local `.env*` files are ignored. Hosting metadata must contain only the project ID and supported logical resource declarations.

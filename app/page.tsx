@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import {
   ArrowDown,
   ArrowUpRight,
@@ -81,30 +80,12 @@ export default function Home() {
               </span>
             </div>
           </div>
-          <div className="hero-visual">
-            <Image
-              src="/images/electrician-residential.jpg"
-              alt="Tradesperson fitting a modern pendant light in a bright home"
-              fill
-              sizes="(max-width: 640px) calc(100vw - 40px), 50vw"
-              priority
-              className="hero-image"
-            />
-            <div className="image-corner corner-top" />
-            <div className="image-corner corner-bottom" />
-            <div className="hero-image-label">
-              <span className="status-dot" /> PLANNED. INSTALLED. SUPPORTED.
-            </div>
-            <div className="camera-note">
-              <span className="note-icon">
-                <ShieldCheck size={24} />
-              </span>
-              <div>
-                <strong>One trusted team.</strong>
-                <span>Power, protection and ongoing care.</span>
-              </div>
-            </div>
-            <span className="image-credit">Illustrative photography</span>
+          <div
+            className="hero-visual image-placeholder"
+            role="img"
+            aria-label="Placeholder"
+          >
+            placeholder
           </div>
         </section>
         <div className="benefit-strip">

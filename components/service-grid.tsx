@@ -11,7 +11,7 @@ const icons = {
 export function ServiceGrid() {
   return (
     <div className="service-grid">
-      {site.services.map((service, index) => {
+      {site.services.map((service) => {
         const Icon = icons[service.icon];
         return (
           <a
@@ -19,7 +19,6 @@ export function ServiceGrid() {
             key={service.slug}
             href={`/services/${service.slug}`}
           >
-            <span className="service-number">0{index + 1}</span>
             <Icon size={32} aria-hidden="true" />
             <h3>{service.title}</h3>
             <p>{service.description}</p>

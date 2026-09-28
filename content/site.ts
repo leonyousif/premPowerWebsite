@@ -25,8 +25,6 @@ export const site = {
       detailsHeading: 'Your home, thoughtfully connected.',
       detailsCopy:
         'We consider room layout, future needs, access and the finish you want before recommending a scope. The final service list, equipment and compliance requirements will be confirmed for each property.',
-      image: '/images/electrician-residential.jpg',
-      imageAlt: 'Tradesperson fitting a modern pendant light in a bright home',
       features: [
         'Lighting design, upgrades and installation',
         'Power points, switches and dedicated circuits',
@@ -66,9 +64,6 @@ export const site = {
       detailsHeading: 'Built around your operations.',
       detailsCopy:
         'A clear scope and practical staging help reduce disruption. Every project can be shaped around the property type, site access and the documentation your business or building manager requires.',
-      image: '/images/electrician-commercial.jpg',
-      imageAlt:
-        'Electrician inspecting a commercial electrical installation in a bright workspace',
       features: [
         'Office, retail and hospitality fit-outs',
         'Commercial lighting and power distribution',
@@ -108,9 +103,6 @@ export const site = {
       detailsHeading: 'Security that makes sense.',
       detailsCopy:
         'Camera choice is only part of the solution. Recorder capacity, secure network configuration, user access and simple handover all contribute to a system you can rely on and understand.',
-      image: '/images/cctv-camera.jpg',
-      imageAlt:
-        'White outdoor CCTV camera professionally mounted on a light textured wall',
       features: [
         'Residential and commercial CCTV design',
         'Indoor and outdoor camera installation',
@@ -150,9 +142,6 @@ export const site = {
       detailsHeading: 'Fix today. Plan for tomorrow.',
       detailsCopy:
         'Maintenance can be reactive, scheduled or part of a broader upgrade plan. The right approach depends on the installation, fault symptoms, equipment and access available on site.',
-      image: '/images/electrician-maintenance.jpg',
-      imageAlt:
-        'Gloved technician testing components inside an electrical control panel',
       features: [
         'Electrical fault finding and repairs',
         'Lighting, power and circuit troubleshooting',

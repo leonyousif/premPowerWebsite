@@ -35,11 +35,10 @@ export default function TermsPage() {
         accreditation, customer review or service area should be inferred from
         this preview.
       </p>
-      <h2>Images and branding</h2>
+      <h2>Visual placeholders</h2>
       <p>
-        The Premier Power logo was provided for this project. Electrical and
-        security photography illustrates the subject and does not show completed
-        Premier Power installations.
+        Grey boxes marked “placeholder” stand in for the logo and photography
+        throughout this preview.
       </p>
       <h2>Before public launch</h2>
       <p>

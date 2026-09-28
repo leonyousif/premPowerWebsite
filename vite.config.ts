@@ -54,6 +54,9 @@ export default defineConfig(async () => {
       ],
       exclude: ['lucide-react'],
     },
+    define: {
+      'process.env.__NEXT_APP_NAV_FAIL_HANDLING': 'false',
+    },
     css: { postcss: { plugins: [tailwindcss()] } },
     server: isCodexSeatbeltSandbox
       ? { watch: { useFsEvents: false, usePolling: true } }
