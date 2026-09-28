@@ -37,3 +37,12 @@ next-env.d.ts
 /outputs/
 /work/
 *.tsbuildinfo
+
+# Local AI assistant metadata and agent instructions
+.agents/
+.codex/
+.openai/
+AGENTS.md
+
+# Local image folder
+/img/
