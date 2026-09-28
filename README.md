@@ -14,7 +14,11 @@ npm test
 npm run build
 ```
 
-`npm run format` formats the code. The generated Sites configuration and build target are preserved. Vinext is a beta framework; review framework releases and test updates before production changes.
+`npm run format` formats the code. The build uses the Cloudflare Workers Vite adapter. Vinext is a beta framework; review framework releases and test updates before production changes.
+
+## Temporary preview hosting
+
+After `npm ci`, run `npm run build` and `npm run start` to preview the production build locally through Wrangler. To deploy the built Worker to a Cloudflare account, authenticate Wrangler and run `npx wrangler deploy --config dist/server/wrangler.json`. Cloudflare account setup and access controls are managed outside this repository; never commit API tokens or `.dev.vars` files.
 
 ## Structure
 
@@ -42,7 +46,7 @@ To activate live enquiries, implement a server endpoint, independently validate 
 
 Each page has its own title, description, canonical URL when configured, and Open Graph/X metadata without social preview images. The home page includes safe WebSite JSON-LD; service pages include Service JSON-LD without fake ratings, addresses or licence claims. Semantic headings, descriptive links and a sitemap/robots implementation are included.
 
-`launch.indexable` is intentionally `false` while details are placeholders. Both the HTML metadata and HTTP header say noindex, robots disallows crawling, and the sitemap is empty. Canonical URLs come only from the configured HTTPS origin, never visitor-controlled host headers. Private Sites access independently prevents public crawling. SEO foundations are implemented; this does not guarantee rankings or search inclusion.
+`launch.indexable` is intentionally `false` while details are placeholders. Both the HTML metadata and HTTP header say noindex, robots disallows crawling, and the sitemap is empty. Canonical URLs come only from the configured HTTPS origin, never visitor-controlled host headers. A temporary preview is publicly accessible to anyone with its URL unless you configure separate access controls; `noindex` is a search hint, not access protection. SEO foundations are implemented; this does not guarantee rankings or search inclusion.
 
 Before a public business launch:
 
@@ -66,8 +70,8 @@ No implementation can guarantee absolute security. Dependency audit, type checks
 
 ## Design references and assets
 
-Original styling uses warm white, muted gold and charcoal type inspired by the supplied logo. The service-led structure, separate residential and commercial paths, maintenance support and visible quote actions were informed by [CJM Electrical](https://www.cjmelectrical.com.au/), [Intellectrical](https://intellectrical.com.au/) and [ECA Electrix](https://ecaelectrix.com.au/). Their text, logos and website code were not copied.
+Original styling uses warm white, muted gold and charcoal type. The service-led structure, separate residential and commercial paths, maintenance support and visible quote actions were informed by [CJM Electrical](https://www.cjmelectrical.com.au/), [Intellectrical](https://intellectrical.com.au/) and [ECA Electrix](https://ecaelectrix.com.au/). Their text, logos and website code were not copied.
 
-- Image files in `public/` are retained in the repository but are not displayed or referenced by page/social metadata. The site preview uses grey placeholder boxes instead.
+- No photo or logo files are included in the published tree; grey placeholder boxes stand in for all image areas.
 
-No secret values belong in this repository. Local `.env*` files are ignored. Hosting metadata must contain only the project ID and supported logical resource declarations.
+No secret values belong in this repository. Local `.env*` and `.dev.vars*` files are ignored. Keep Cloudflare credentials in Wrangler's supported local authentication or deployment secret store, never in source files.

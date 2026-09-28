@@ -70,8 +70,6 @@ export default async function ServicePage({ params }: PageProps) {
         </div>
         <div
           className="detail-image image-placeholder"
-          role="img"
-          aria-label="Placeholder"
         >
           placeholder
         </div>

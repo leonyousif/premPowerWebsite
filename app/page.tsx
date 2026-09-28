@@ -82,8 +82,6 @@ export default function Home() {
           </div>
           <div
             className="hero-visual image-placeholder"
-            role="img"
-            aria-label="Placeholder"
           >
             placeholder
           </div>

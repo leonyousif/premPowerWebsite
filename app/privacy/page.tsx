@@ -39,8 +39,9 @@ export default function PrivacyPage() {
       <p>
         The application does not add advertising analytics, tracking pixels or
         third-party embeds. The hosting platform may process connection
-        information and use authentication cookies to provide access to this
-        private preview. Those platform operations are separate from the enquiry
+        information under its own privacy practices. Anyone with the preview
+        URL can access it unless separate access controls are configured;
+        platform authentication cookies, if used, are separate from the enquiry
         form.
       </p>
       <h2>Before the business website goes live</h2>
