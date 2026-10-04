@@ -95,10 +95,6 @@ export function SiteHeader() {
       <a href="#main-content" className="skip-link">
         Skip to content
       </a>
-      <div className="preview-bar">
-        CONCEPT PREVIEW{' '}
-        <span>Business details & service information are placeholders.</span>
-      </div>
       <header className="site-header">
         <div className="container header-inner">
           <Link href="/" className="brand" aria-label="Premier Power home">

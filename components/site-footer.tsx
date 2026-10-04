@@ -41,22 +41,10 @@ export function SiteFooter() {
               Get a free quote <ArrowUpRight size={12} />
             </Link>
           </div>
-          <div className="footer-location">
-            <h2>Your local electrical &amp; security team</h2>
-            <p>{site.location}</p>
-            <span className="sample-label">PLACEHOLDER BUSINESS DETAILS</span>
-            <p>
-              Security licence: {site.licence}
-              <br />
-              Electrical licence: {site.electricalLicence}
-              <br />
-              ABN: {site.abn}
-            </p>
-          </div>
         </div>
         <div className="footer-bottom">
           <span>
-            © {new Date().getFullYear()} Premier Power. Concept website.
+            © {new Date().getFullYear()} Premier Power. All rights reserved.
           </span>
           <div>
             <Link href="/privacy">Privacy</Link>

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import {
   ArrowDown,
   ArrowUpRight,
@@ -13,7 +14,6 @@ import {
   Wrench,
 } from 'lucide-react';
 import { ServiceGrid } from '@/components/service-grid';
-import { FaqSection } from '@/components/faq-section';
 import { ContactSection } from '@/components/contact-section';
 import { StructuredData } from '@/components/structured-data';
 import { reasons, processSteps } from '@/content/home';
@@ -40,10 +40,42 @@ export default function Home() {
       <StructuredData
         data={{
           '@context': 'https://schema.org',
-          '@type': 'WebSite',
-          name: site.name,
-          description: site.description,
-          ...(launch.origin ? { url: launch.origin } : {}),
+          '@graph': [
+            {
+              '@type': 'WebSite',
+              '@id': launch.origin ? `${launch.origin}/#website` : undefined,
+              name: site.name,
+              description: site.description,
+              ...(launch.origin ? { url: launch.origin } : {}),
+            },
+            {
+              '@type': 'Electrician',
+              '@id': launch.origin
+                ? `${launch.origin}/#electrician`
+                : undefined,
+              name: site.name,
+              description: site.description,
+              ...(launch.origin ? { url: launch.origin } : {}),
+              ...(site.phone && !site.phone.includes('[')
+                ? { telephone: site.phone }
+                : {}),
+              ...(site.email && !site.email.includes('[')
+                ? { email: site.email }
+                : {}),
+              areaServed: {
+                '@type': 'AdministrativeArea',
+                name: site.serviceArea,
+                addressRegion: 'NSW',
+                addressCountry: 'AU',
+              },
+              knowsAbout: [
+                'Residential Electrical',
+                'Commercial Electrical',
+                'CCTV & Security Systems',
+                'Electrical Maintenance',
+              ],
+            },
+          ],
         }}
       />
       <main id="main-content">
@@ -80,10 +112,15 @@ export default function Home() {
               </span>
             </div>
           </div>
-          <div
-            className="hero-visual image-placeholder"
-          >
-            placeholder
+          <div className="hero-visual">
+            <Image
+              src="/images/hero-electrician.webp"
+              alt="Licensed electrician installing service equipment and meter base"
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 900px) 100vw, 50vw"
+            />
           </div>
         </section>
         <div className="benefit-strip">
@@ -195,17 +232,18 @@ export default function Home() {
             <ShieldCheck size={33} />
           </span>
           <div>
-            <span className="eyebrow">CLOSE TO HOME</span>
+            <span className="eyebrow">DEPENDABLE SERVICE</span>
             <h2 id="local-heading">
-              Your local electrical &amp; security team.
+              Your electrical &amp; security team.
             </h2>
-            <p>Servicing {site.location}</p>
+            <p>
+              Quality workmanship and dependable support for homes and businesses.
+            </p>
           </div>
           <a href="#contact" className="button button-outline">
             Let’s talk about your property <ArrowUpRight size={17} />
           </a>
         </section>
-        <FaqSection />
         <ContactSection />
       </main>
     </>

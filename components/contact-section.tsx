@@ -1,4 +1,4 @@
-import { ArrowUpRight, Clock3, Mail, MapPin, Phone } from 'lucide-react';
+import { ArrowUpRight, Mail, Phone } from 'lucide-react';
 import { QuoteForm } from '@/components/quote-form';
 import { site } from '@/content/site';
 
@@ -41,24 +41,10 @@ export function ContactSection({
                 <dd>{site.email}</dd>
               </div>
             </div>
-            <div>
-              <MapPin size={19} />
-              <div>
-                <dt>Locally focused</dt>
-                <dd>{site.location}</dd>
-              </div>
-            </div>
-            <div>
-              <Clock3 size={19} />
-              <div>
-                <dt>Office hours</dt>
-                <dd>{site.hours}</dd>
-              </div>
-            </div>
           </dl>
-          <p className="placeholder-note">
-            Contact details are placeholders. This preview does not accept
-            bookings or send enquiries.
+          <p className="contact-assurance">
+            We respond promptly to all enquiries. For urgent fault repairs or
+            emergencies, please contact us by phone.
           </p>
         </div>
         <QuoteForm initialService={initialService} />

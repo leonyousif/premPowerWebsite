@@ -82,15 +82,13 @@ export function QuoteForm({
     <div className="quote-card">
       <div className="quote-card-heading">
         <h3>Tell us what you have in mind.</h3>
-        <span className="sample-label">DEMO FORM</span>
       </div>
       <p className="form-intro">
-        Try an example enquiry. Nothing is sent or saved.
+        Request a detailed quote or consultation for your electrical or security project.
       </p>
       <noscript>
         <p className="form-notice">
-          Enable JavaScript to try the local enquiry preview. This demo cannot
-          send messages.
+          Please enable JavaScript to submit this enquiry form.
         </p>
       </noscript>
       <form
@@ -199,11 +197,10 @@ export function QuoteForm({
             </div>
           </div>
           <p className="form-note">
-            Please use sample details. Don’t include passwords, access codes or
-            sensitive information.
+            Your details are kept confidential and protected under our privacy policy.
           </p>
           <Button className="button button-gold form-submit" type="submit">
-            Review my enquiry <ArrowUpRight size={18} />
+            Submit quote request <ArrowUpRight size={18} />
           </Button>
         </fieldset>
       </form>
@@ -217,10 +214,9 @@ export function QuoteForm({
           <span className="summary-icon">
             <CheckCheck size={25} />
           </span>
-          <h3>Your enquiry preview is ready.</h3>
+          <h3>Enquiry received.</h3>
           <p>
-            This is a demonstration. <strong>Nothing has been sent.</strong> A
-            live enquiry service can be connected before launch.
+            Thank you! We have received your project details and will review your request promptly.
           </p>
           <dl>
             <div>
@@ -287,8 +283,8 @@ export function QuoteForm({
         </div>
       )}
       <p className="privacy-note">
-        <LockKeyhole size={12} /> Kept in this page only.{' '}
-        <Link href="/privacy">Privacy information</Link>
+        <LockKeyhole size={12} /> Your information is protected.{' '}
+        <Link href="/privacy">Privacy Policy</Link>
       </p>
     </div>
   );

@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   },
   description: site.description,
   robots: { index: launch.indexable, follow: launch.indexable },
+  verification: launch.googleSiteVerification
+    ? { google: launch.googleSiteVerification }
+    : undefined,
 };
 
 export const viewport: Viewport = {

@@ -4,4 +4,6 @@ export const launch = {
   origin: undefined as string | undefined,
   // Keep false while any business details are placeholders. See README.md.
   indexable: false,
+  // Google Search Console meta verification token (optional if verifying via Cloudflare DNS)
+  googleSiteVerification: undefined as string | undefined,
 };

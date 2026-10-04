@@ -140,19 +140,22 @@ svg {
   align-items: center;
   flex-shrink: 0;
 }
+.brand .brand-logo,
 .brand .logo-placeholder {
   width: 48px;
   height: 48px;
-  display: grid;
-  place-items: center;
-  background: #dedede;
-  color: #666;
-  border-radius: 4px;
-  font-size: 7px;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
   flex-shrink: 0;
   transition: transform 0.2s ease;
 }
+.brand .brand-logo svg {
+  display: block;
+  border-radius: 8px;
+}
+.brand:hover .brand-logo,
 .brand:hover .logo-placeholder {
   transform: scale(1.04);
 }
@@ -444,6 +447,7 @@ svg {
   min-height: 475px;
   background: #dce0dc;
   border-radius: 8px;
+  overflow: hidden;
 }
 .image-placeholder {
   display: grid;
@@ -1236,7 +1240,7 @@ h2 {
 }
 .footer-top {
   display: grid;
-  grid-template-columns: 1.35fr 0.8fr 0.9fr 1.2fr;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 40px;
 }
 .footer-top > div > p {

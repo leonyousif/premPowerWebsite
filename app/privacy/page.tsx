@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import { createPageMetadata } from '@/lib/seo';
 import { launch } from '@/content/launch';
+import { site } from '@/content/site';
 
 export const metadata = createPageMetadata(
-  'Privacy information',
-  'How the Premier Power concept website handles enquiry previews and personal information.',
+  'Privacy Policy',
+  'Privacy policy and personal information handling for Premier Power.',
   '/privacy',
   launch.origin,
 );
@@ -15,44 +16,44 @@ export default function PrivacyPage() {
       <Link href="/" className="text-link">
         ← Back to home
       </Link>
-      <span className="eyebrow">CONCEPT WEBSITE</span>
-      <h1>Privacy information</h1>
+      <span className="eyebrow">{site.name.toUpperCase()}</span>
+      <h1>Privacy Policy</h1>
       <p className="legal-intro">
-        This page describes the current demonstration website. Replace it with a
-        reviewed business privacy policy before activating live enquiries.
+        Premier Power is committed to safeguarding your privacy. This policy
+        outlines how we collect, use, and protect your personal information when
+        you interact with our website and electrical services.
       </p>
-      <h2>The enquiry preview</h2>
+      <h2>Information We Collect</h2>
       <p>
-        The form only creates a preview within your browser tab. Form contents
-        are not sent to Premier Power, emailed, written to a database, or saved
-        in browser storage. Closing or reloading the page clears the preview.
-        Your browser may independently remember information through its own
-        autofill settings.
+        When you submit an enquiry or request a quote, we collect contact details
+        necessary to respond to your request, including your name, email address,
+        phone number, suburb, and details regarding your electrical or security project.
       </p>
-      <h2>Use sample information</h2>
+      <h2>How We Use Your Information</h2>
       <p>
-        Please do not enter passwords, camera access codes or sensitive details.
-        The contact information displayed on this website is placeholder
-        content, and the form does not make a booking or request a callback.
+        Your information is used strictly to provide quotations, schedule on-site
+        electrical and security assessments, carry out contracted work, and
+        communicate with you regarding your service enquiries. We do not sell, rent,
+        or distribute your personal details to third parties for marketing purposes.
       </p>
-      <h2>Cookies and hosting</h2>
+      <h2>Data Security</h2>
       <p>
-        The application does not add advertising analytics, tracking pixels or
-        third-party embeds. The hosting platform may process connection
-        information under its own privacy practices. Anyone with the preview
-        URL can access it unless separate access controls are configured;
-        platform authentication cookies, if used, are separate from the enquiry
-        form.
+        We employ industry-standard technical and operational safeguards to protect
+        your data against unauthorized access, disclosure, or misuse.
       </p>
-      <h2>Before the business website goes live</h2>
+      <h2>Cookies and Hosting</h2>
       <p>
-        Add the business’s verified identity, privacy contact, actual data
-        collection and retention practices, service providers and any applicable
-        policy information. Review this page whenever the form, analytics or
-        other data handling changes.
+        Our hosting infrastructure may record standard server logs (such as IP
+        addresses and browser types) solely for performance monitoring, security,
+        and diagnostic purposes. We do not use third-party tracking pixels or intrusive
+        advertising cookies.
       </p>
-      <h2>Contact</h2>
-      <p>Privacy contact: [Business privacy contact email]</p>
+      <h2>Contact Us</h2>
+      <p>
+        If you have any questions regarding this Privacy Policy or how your
+        information is handled, please contact us at{' '}
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
     </main>
   );
 }

@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowUpRight, Check, ChevronRight } from 'lucide-react';
 import { ContactSection } from '@/components/contact-section';
 import { StructuredData } from '@/components/structured-data';
@@ -64,14 +65,16 @@ export default async function ServicePage({ params }: PageProps) {
           <a href="#contact" className="button button-gold">
             Talk about your project <ArrowUpRight size={18} />
           </a>
-          <span className="detail-disclaimer">
-            Sample service information — confirm availability before launch.
-          </span>
         </div>
-        <div
-          className="detail-image image-placeholder"
-        >
-          placeholder
+        <div className="detail-image">
+          <Image
+            src={service.image}
+            alt={service.imageAlt}
+            fill
+            priority
+            className="object-cover"
+            sizes="(max-width: 900px) 100vw, 50vw"
+          />
         </div>
       </section>
       <section className="section container service-inclusions">
@@ -90,9 +93,9 @@ export default async function ServicePage({ params }: PageProps) {
               </li>
             ))}
           </ul>
-          <p className="placeholder-note">
-            Final equipment, inclusions, pricing and timeframes are subject to a
-            property assessment and confirmed quote.
+          <p className="service-note">
+            Inclusions, equipment and project schedules are confirmed following
+            an on-site assessment and agreed scope.
           </p>
         </div>
       </section>

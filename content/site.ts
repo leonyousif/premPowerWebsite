@@ -1,22 +1,18 @@
-/** Edit business information here. All unverified details remain explicit placeholders. */
 export const site = {
   name: 'Premier Power',
   description:
     'Residential and commercial electrical work, CCTV installation, and electrical maintenance for homes and businesses. Explore installation, upgrades, fault finding, ongoing care, and security solutions.',
   phone: '[Phone number]',
   email: '[Email address]',
-  location: '[Your city & surrounding suburbs]',
-  address: '[Business address]',
-  hours: '[Business hours]',
-  licence: '[Security licence number]',
-  electricalLicence: '[Electrical licence number]',
-  abn: '[ABN]',
+  serviceArea: 'Western Sydney',
   services: [
     {
       slug: 'residential-electrician',
       title: 'Residential Electrical',
       shortTitle: 'Residential',
       icon: 'residential',
+      image: '/images/residential-electrical.webp',
+      imageAlt: 'Modern home interior with warm architectural LED lighting and kitchen appliances',
       eyebrow: 'POWER FOR EVERYDAY LIFE',
       description:
         'Practical electrical work for homes, renovations and new spaces—planned around how you live.',
@@ -56,6 +52,8 @@ export const site = {
       title: 'Commercial Electrical',
       shortTitle: 'Commercial',
       icon: 'commercial',
+      image: '/images/commercial-electrical.webp',
+      imageAlt: 'Commercial electrician servicing overhead lighting and security installation on a scissor lift',
       eyebrow: 'POWER THAT KEEPS BUSINESS MOVING',
       description:
         'Dependable electrical solutions for offices, retail, strata, hospitality and commercial spaces.',
@@ -95,6 +93,8 @@ export const site = {
       title: 'CCTV & Security',
       shortTitle: 'CCTV & Security',
       icon: 'cctv',
+      image: '/images/cctv-security.webp',
+      imageAlt: 'Commercial outdoor CCTV security camera mounted on a building facade',
       eyebrow: 'A CLEARER VIEW OF WHAT MATTERS',
       description:
         'Considered camera systems for homes and businesses, including placement, recording and remote access.',
@@ -134,6 +134,8 @@ export const site = {
       title: 'Electrical Maintenance',
       shortTitle: 'Maintenance',
       icon: 'maintenance',
+      image: '/images/electrical-maintenance.webp',
+      imageAlt: 'Technician conducting electrical multimeter testing and fault finding on connection terminals',
       eyebrow: 'KEEPING POWER RELIABLE',
       description:
         'Responsive fault finding, repairs and planned maintenance to keep properties safe and operating.',
@@ -175,5 +177,4 @@ export const navigation = [
   { label: 'Services', href: '/#services' },
   { label: 'Why Premier Power', href: '/#why-us' },
   { label: 'Our process', href: '/#process' },
-  { label: 'FAQs', href: '/#faqs' },
 ] as const;
